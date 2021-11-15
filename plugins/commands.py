@@ -1,22 +1,26 @@
 import os
 import logging
-import random
 import asyncio
-from Script import script
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+
+
+
 
 
 @Client.on_message(filters.command("start"))
 async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
-        buttons = [
+""",
+        reply_markup=InlineKeyboardMarkup(
             [
-                InlineKeyboardButton('🤖 Updates', url='https://t.me/TeamEvamaria')
-            ],
-            [
-                InlineKeyboardButton('ℹ️ Help', url=f"https://t.me/{temp.U_NAME}?start=help"),
+                [
+                    InlineKeyboardButton(
+                        "➕ Add me to your Group ➕",
+                        url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
+                                                                       
+                    )
+                ],
             ]
-            ]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await message.reply(script.START_TXT.format(message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME), reply_markup=reply_markup)
-        await asyncio.sleep(2)
+        ),
+        disable_web_page_preview=True,
+    )
