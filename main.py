@@ -1,10 +1,13 @@
+import importlib
+import re
 import os
 import asyncio
 import logging
 from pytgcalls import idle
 from pyrogram import idle as pidle
 from driver.veez import call_py, bot
-from telegram import Message, Chat, Update, Bot, User
+from typing import Optional, List
+
 
 if os.path.exists('log.txt'):
     with open('log.txt', 'r+') as f:
