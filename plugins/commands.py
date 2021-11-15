@@ -8,8 +8,9 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
 @Client.on_message(filters.command("start"))
-async def start(client, message):
-    if message.chat.type in ['group', 'supergroup']:
+async def start_(client: Client, message: Message):
+    await message.reply_text(
+        f"""✨ **Welcome {message.from_user.mention()} !**\n
 """,
         reply_markup=InlineKeyboardMarkup(
             [
