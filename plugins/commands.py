@@ -1,3 +1,11 @@
+import os
+import logging
+import random
+import asyncio
+from Script import script
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+
+
 @Client.on_message(filters.command("start"))
 async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
